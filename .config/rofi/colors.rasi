@@ -1,0 +1,9 @@
+* {
+    windowbg: #16161CE0;
+    background:     #16161C;
+    background-alt: #16161C;
+    foreground:     #FADAD1;
+    selected:       #F43E5C;
+    active:         #F43E5C;
+    urgent:         #F43E5C;
+}

@@ -1,0 +1,108 @@
+{
+  "layer": "top",
+  "modules-left": ["hyprland/workspaces", "network", "bluetooth", "privacy"],
+  "modules-center": ["clock"],
+  "modules-right": ["hyprland/language", "backlight", "wireplumber", "battery"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "network": {
+    "interval": 10,
+    "interface": "wlp2s0",
+    "format": "{}",
+    "format-wifi": "{essid}  ",
+    "format-disconnected": "",
+    "tooltip": false,
+    "max-length": 50
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "format-on": " On",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip": false,
+    "max-length": 50
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip": false
+  },
+
+  "hyprland/language": {
+    "format": "  {1}",
+    "on-click": "hyprctl switchxkblayout all next",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "device": "apple-panel-bl",
+    "format": "{icon} {percent}%",
+    "format-icons": [""],
+    "tooltip": false
+  },
+
+  "wireplumber": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-muted": "{icon}  muted",
+    "on-click": "amixer -D pipewire sset Master toggle",
+    "format-icons": {
+      "default": ["", "", ""]
+    }
+  },
+
+  "battery": {
+    "interval": 2,
+    "bat": "BAT1",
+    "states": {
+      "normal": 70,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "max-length": 25
+  },
+
+  "privacy": {
+    "icon-spacing": 10,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "tooltip": false,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": false,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": false,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": false,
+        "tooltip-icon-size": 24
+      }
+    ]
+  }
+}

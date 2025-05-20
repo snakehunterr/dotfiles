@@ -1,0 +1,182 @@
+# LANGUAGE SERVERS #
+
+[language-server]
+emmet-ls = { command = "emmet-ls", args = ["--stdio"] }
+typescript-language-server = { command = "typescript-language-server", args = [
+  "--stdio",
+] }
+
+[language-server.some-sass-language-server]
+command = "some-sass-language-server"
+args = ["--stdio"]
+config = { somesass = { workspace = { loadPaths = [] } } }
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+# JAVASCRIPT #
+
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "jsx"] }
+auto-format = true
+
+# TYPESCRIPT #
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "tsx"] }
+auto-format = true
+
+# HTML #
+
+[[language]]
+name = "html"
+scope = "source.html"
+roots = []
+file-types = ["html"]
+language-servers = ["superhtml", "vscode-html-language-server", "emmet-lsp"]
+auto-format = true
+
+# CSS #
+
+[[language]]
+name = "css"
+file-types = ["css"]
+language-servers = ["some-sass-language-server", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "css"] }
+auto-format = true
+
+[[language]]
+name = "scss"
+file-types = ["scss"]
+language-servers = ["some-sass-language-server", "emmet-ls"]
+formatter = { command = "prettier", args = ["--parser", "scss"] }
+auto-format = true
+
+# JSON #
+
+[[language]]
+name = "json"
+file-types = ["json", "jsonc"]
+language-servers = ["vscode-json-language-server"]
+formatter = { command = "prettier", args = ["--parser", "json"] }
+auto-format = true
+
+# MARKDOWN #
+
+[[language]]
+name = "markdown"
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
+soft-wrap.enable = true
+soft-wrap.wrap-at-text-width = true
+auto-format = true
+
+# YAML #
+
+[[language]]
+name = "yaml"
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+auto-format = true
+
+# TOML #
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
+auto-format = true
+
+# GOLANG #
+
+[language-server.gopls]
+command = "gopls"
+
+[[language]]
+name = "go"
+language-servers = ["gopls"]
+auto-format = true
+
+[language.formatter]
+command = "gofmt"
+args = ["-s"]
+
+# LUA #
+
+[[language]]
+name = "lua"
+language-servers = ["lua-language-server"]
+formatter = { command = "stylua", args = ["-"] }
+auto-format = true
+
+# RUST #
+
+[[language]]
+name = "rust"
+auto-format = true
+
+# C #
+
+[[language]]
+name = "c"
+formatter = { command = "clang-format" }
+auto-format = true
+
+# CPP #
+
+[[language]]
+name = "cpp"
+formatter = { command = "clang-format" }
+auto-format = true
+
+# PYTHON #
+
+[[language]]
+name = "python"
+formatter = { command = "black", args = ["-", "--quiet"] }
+auto-format = true
+
+# FISH SHELL #
+
+[[language]]
+name = "fish"
+language-servers = ["fish-lsp"]
+auto-format = true
+
+[language-server.fish-lsp]
+command = "fish-lsp"
+args = ["start"]
+environment = { "fish_lsp_show_client_popups" = "false" }
+
+# BASH #
+
+[[language]]
+name = "bash"
+formatter = { command = "shfmt", args = ["-"] }
+auto-format = true
+
+# SQL #
+
+[[language]]
+name = "sql"
+language-servers = ["sql-language-server"]
+formatter = { command = "sql-formatter" }
+auto-format = true
+
+[language-server.sql-language-server]
+command = "sql-language-server"
+args = ["up", "--method", "stdio"]

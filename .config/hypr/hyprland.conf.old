@@ -1,0 +1,220 @@
+# monitor=HDMI-A-1,1920x1080@75,1920x0,1
+# monitor=DP-1,1920x1080@100,0x0,1
+monitor=eDP-1,2600x1600@60,0x0,2
+
+# exec-once = waybar
+# exec-once = eww open main-bar
+# exec-once=swaync
+# exec-once=/usr/lib/polkit-kde-authentication-agent-1
+# exec-once=env QT_QPA_PLATFORM=xcb copyq
+# exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# exec-once=hyprlock
+exec-once=hyprpaper
+exec-once=hypridle
+exec-once=hyprsunset
+exec-once=hyprctl setcursor butterfly 40
+# exec-once=${HOME}/.config/hypr/smart_borders.sh
+exec-once=waybar
+exec-once=swaync
+# exec-once=~/UserFiles/shisutemu/shisutemu_daemon.py
+# exec-once=amixer -D pulse sset Capture 0%
+exec-once=amixer -D pipewire sset Capture 0%
+exec-once=hyprctl hyprsunset temperature 3000
+# exec-once=mpvpaper -ps -o "no-audio --loop --video-unscaled --vf=format=convert=yes:h=1600:w=2560" eDP-1 ~/Wallpapers/wolf_final.mp4
+
+# THIS IS USED FOR VS CODE
+# xwayland {
+#     force_zero_scaling = true
+# }
+# 
+general {
+    gaps_in = 5
+    gaps_out = 10
+    gaps_workspaces = 20
+
+    border_size = 1
+    layout = dwindle
+
+    col.active_border = rgb(f43e5c) rgb(59e3e3) 270deg # red to cyan
+    # col.active_border = rgb(f43e5c) rgb(27d796) 270deg # red to green
+}
+
+decoration {
+    rounding = 4
+    rounding_power = 3.0
+
+    active_opacity = 1 # 0.0 - 1.0
+    inactive_opacity = 1 # 0.9 - 1.0
+    fullscreen_opacity = 1 # 0.9 - 1.0
+
+    dim_inactive = true
+    dim_strength = 0.2 # 0.0 - 1.0
+}
+
+animations {
+    enabled = yes
+    bezier = anim, 1, 0.03, 0.17, 0.83 
+    bezier = linear, 0, 0, 1, 1
+
+    # animation = layers, 1, 1.5, anim, popin
+    animation = windows, 1, 1.5, anim, popin
+    animation = border, 1, 2, anim
+    animation = fade, 1, 1.5, anim
+    animation = workspaces, 1, 1.5, anim, slide # slide / fade
+    animation = borderangle, 1, 15, linear, loop
+}
+
+input {
+    repeat_rate = 50
+    repeat_delay = 450
+    kb_layout = us,ru
+    kb_options = grp:rwin_toggle
+
+    follow_mouse = 1
+
+    touchpad {
+        natural_scroll = true
+        disable_while_typing = true
+        scroll_factor = 0.2
+        tap-to-click = false
+    }
+
+    sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+}
+
+cursor {
+    inactive_timeout = 1
+}
+
+
+dwindle {
+    pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+    preserve_split = yes # you probably want this
+}
+
+misc {
+    new_window_takes_over_fullscreen = 2
+    exit_window_retains_fullscreen = true
+}
+
+
+gestures {
+    workspace_swipe = on
+}
+
+windowrule=float,class:*
+windowrule=opacity 0.9,class:kitty
+# layerrule=noanim,^(rofi)$
+layerrule=noanim,^(hyprpicker)$
+layerrule=noanim,^(hyprpaper)$
+
+# windowrule=tile, ^(neovide)$
+
+# windowrule=float, ^(nwg-look)$
+# windowrule=float, ^(pavucontrol)$
+# windowrule=float, ^(Google-chrome)$
+# windowrule=move 0 0,^(Google-chrome)$
+# windowrule=size 1000 800,^(Google-chrome)$
+# windowrule=opacity 0.85,^(kitty)$
+# windowrulev2=float,title:(foobar)
+
+# windowrulev2=float,title:(_system_control_widget_)
+# windowrulev2=opacity 0.8,title:(_system_control_widget_)
+# windowrulev2=move 535 55%,title:(_system_control_widget_)
+# windowrulev2=nofocus,title:(_system_control_widget_)
+# windowrulev2=noborder,title:(_system_control_widget_)
+# windowrulev2=noanim,title:(_system_control_widget_)
+# windowrulev2=nofocus,title:(_system_control_widget_)
+# windowrulev2=nodim,title:(_system_control_widget_)
+# windowrulev2=noshadow,title:(_system_control_widget_)
+# windowrulev2=noblur,title:(_system_control_widget_)
+
+
+$mainMod = SUPER
+
+bind = $mainMod, T, exec, kitty
+# bind = $mainMod, T, exec, cool-retro-term
+bind = ,XF86LaunchA, exec, swaync-client -t -rs
+bind = $mainMod,XF86LaunchA, exec, swaync-client -R -rs
+# bind = $mainMod, N, exec, env -u WAYLAND_DISPLAY neovide 
+
+bind = $mainMod, C, killactive
+# bind = $mainMod, S, togglespecialworkspace, magic
+# bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+
+bind = $mainMod SHIFT, code:9, exit
+
+# bind = $mainMod, F, exec, kitty ranger
+
+bind = $mainMod, R, exec, rofi -show drun
+
+bind = $mainMod CTRL, Q, togglefloating
+
+bind = $mainMod CTRL, W, fullscreen # dwindle
+
+# bind = $mainMod, E, exec, wofi-emoji
+bind = $mainMod CTRL, E, togglesplit # dwindle
+
+bind = $mainMod, P, exec, grim -g "$(slurp)"
+bind = $mainMod SHIFT, P, exec, hyprpicker --format=hex --autocopy
+
+# Move focus with mainMod + arrow keys
+bind = $mainMod, h, movefocus, l
+bind = $mainMod, l, movefocus, r
+bind = $mainMod, k, movefocus, u
+bind = $mainMod, j, movefocus, d
+
+bind = $mainMod SHIFT, h, movewindow, l
+bind = $mainMod SHIFT, l, movewindow, r
+bind = $mainMod SHIFT, k, movewindow, u
+bind = $mainMod SHIFT, j, movewindow, d
+
+# Switch workspaces with mainMod + [0-9]
+bind = $mainMod, 1, workspace, 1
+bind = $mainMod, 2, workspace, 2
+bind = $mainMod, 3, workspace, 3
+bind = $mainMod, 4, workspace, 4
+bind = $mainMod, 5, workspace, 5
+
+# Move active window to a workspace with mainMod + SHIFT + [0-9]
+bind = $mainMod SHIFT, 1, movetoworkspace, 1
+bind = $mainMod SHIFT, 2, movetoworkspace, 2
+bind = $mainMod SHIFT, 3, movetoworkspace, 3
+bind = $mainMod SHIFT, 4, movetoworkspace, 4
+bind = $mainMod SHIFT, 5, movetoworkspace, 5
+
+# Scroll through existing workspaces with mainMod + scroll
+bind = $mainMod, mouse_down, workspace, e+1
+bind = $mainMod, mouse_up, workspace, e-1
+
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
+
+# Ресайз
+bind = $mainMod CTRL, h, resizeactive,-50 0
+bind = $mainMod CTRL, l, resizeactive,50 0
+bind = $mainMod CTRL, k, resizeactive,0 -50
+bind = $mainMod CTRL, j, resizeactive,0 50
+
+# Sound bindings
+bind = $mainMod,code:121, exec, ~/UserFiles/shisutemu/shisutemu.py sound mute
+bind = $mainMod,code:122, exec, ~/UserFiles/shisutemu/shisutemu.py sound lower
+bind = $mainMod,code:123, exec, ~/UserFiles/shisutemu/shisutemu.py sound higher
+
+# Display brightness power bindings
+bind = $mainMod,code:232, exec, ~/UserFiles/shisutemu/shisutemu.py display lower
+bind = $mainMod,code:233, exec, ~/UserFiles/shisutemu/shisutemu.py display higher
+
+# Keyboard brightness power bindings
+bind = $mainMod SHIFT,code:232, exec, ~/UserFiles/shisutemu/shisutemu.py keyboard lower
+bind = $mainMod SHIFT,code:233, exec, ~/UserFiles/shisutemu/shisutemu.py keyboard higher
+
+bind = , code:472, exec, ~/UserFiles/shisutemu/shisutemu.py language switch
+
+# bind = , code:150, exec, ~/UserFiles/shisutemu/shisutemu.py night_mode switch
+bind = , code:150, exec, hyprlock
+# bind = $mainMod SHIFT, l, exec, "hyprlock"
+# bind = $mainMod SHIFT, code:150, exec, systemctl suspend && hyprlock

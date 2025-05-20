@@ -1,0 +1,279 @@
+$red: #f43e5c;
+$green: #27d796;
+$blue: #26bbd9;
+$yellow: #fab795;
+$white: #fadad1;
+$bg: #16161ca0;
+
+$mtop: 0px;
+$mbot: 0px;
+$mside: 10px;
+$pleft: 10px;
+$pright: 10px;
+
+$bsize: 1px;
+$bradius: 5px;
+$anim: all 0.3s ease-in-out;
+
+$text: #f9cbbe;
+
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 15px;
+  min-height: 15px;
+}
+
+window#waybar {
+  all: unset;
+  background: transparent;
+}
+
+.modules-left {
+  margin-top: $mside;
+  margin-left: $mside;
+}
+
+.modules-center {
+  margin-top: $mside;
+}
+
+.modules-right {
+  margin-top: $mside;
+  margin-right: $mside;
+}
+
+#workspaces {
+  padding-left: 0px;
+  padding-right: 12px;
+  background: $bg;
+  border: $bsize;
+  border-style: solid;
+  border-radius: $bradius;
+  border-color: $red;
+  transition: $anim;
+}
+
+#workspaces button {
+  color: $text;
+  transition: none;
+  margin: 0;
+  padding-left: 8px;
+  padding-right: 0px;
+  transition: all 0.7s ease;
+
+  &:hover {
+    transition: all 0.1s ease;
+    color: $red;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+  }
+}
+
+#workspaces button.active {
+  transition: all 0.1s ease;
+  color: $red;
+}
+
+#network {
+  margin-left: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $red;
+  border-radius: $bradius;
+  transition: $anim;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#network.disabled {
+  border-color: $red;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#network.disconnected {
+  border-color: $red;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#network.wifi {
+  border-color: $green;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+#bluetooth {
+  margin-left: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $text;
+  border-radius: $bradius;
+  transition: $anim;
+}
+
+#bluetooth.on {
+  border-color: $blue;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+#bluetooth.discovering {
+  border-color: $yellow;
+
+  &:hover {
+    color: $yellow;
+  }
+}
+
+#bluetooth.connected {
+  border-color: $green;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+#privacy {
+  margin-left: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $blue;
+  border: $bsize;
+  border-style: solid;
+  border-color: $blue;
+  border-radius: $bradius;
+  transition: $anim;
+}
+
+#clock {
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $text;
+  border-radius: $bradius;
+  transition: $anim;
+}
+
+#language {
+  margin-right: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $yellow;
+  border-radius: $bradius;
+  transition: $anim;
+
+  &:hover {
+    color: $yellow;
+  }
+}
+
+#backlight {
+  margin-right: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $text;
+  border-radius: $bradius;
+  transition: $anim;
+}
+
+#wireplumber {
+  margin-right: $mside;
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $blue;
+  border-radius: $bradius;
+  transition: $anim;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+#wireplumber.muted {
+  border-color: $red;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#battery {
+  padding-left: $pleft;
+  padding-right: $pright;
+  background: $bg;
+  color: $text;
+  border: $bsize;
+  border-style: solid;
+  border-color: $green;
+  border-radius: $bradius;
+  transition: $anim;
+
+  &:hover {
+    color: $green;
+  }
+}
+
+#battery.normal {
+  border-color: $blue;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+#battery.warning {
+  border-color: $yellow;
+
+  &:hover {
+    color: $yellow;
+  }
+}
+
+#battery.critical {
+  border-color: $red;
+
+  &:hover {
+    color: $red;
+  }
+}
+
+#battery.charging {
+  border-color: $green;
+  color: $green;
+}

@@ -1,0 +1,245 @@
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 15px;
+  min-height: 15px;
+}
+
+window#waybar {
+  all: unset;
+  background: transparent;
+}
+
+.modules-left {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.modules-center {
+  margin-top: 10px;
+}
+
+.modules-right {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#workspaces {
+  padding-left: 0px;
+  padding-right: 12px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  border: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: #f43e5c;
+  transition: all 0.3s ease-in-out;
+}
+
+#workspaces button {
+  color: #f9cbbe;
+  transition: none;
+  margin: 0;
+  padding-left: 8px;
+  padding-right: 0px;
+  transition: all 0.7s ease;
+}
+#workspaces button:hover {
+  transition: all 0.1s ease;
+  color: #f43e5c;
+  background: transparent;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+#workspaces button.active {
+  transition: all 0.1s ease;
+  color: #f43e5c;
+}
+
+#network {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #f43e5c;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+#network:hover {
+  color: #f43e5c;
+}
+
+#network.disabled {
+  border-color: #f43e5c;
+}
+#network.disabled:hover {
+  color: #f43e5c;
+}
+
+#network.disconnected {
+  border-color: #f43e5c;
+}
+#network.disconnected:hover {
+  color: #f43e5c;
+}
+
+#network.wifi {
+  border-color: #27d796;
+}
+#network.wifi:hover {
+  color: #27d796;
+}
+
+#bluetooth {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #f9cbbe;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#bluetooth.on {
+  border-color: #26bbd9;
+}
+#bluetooth.on:hover {
+  color: #26bbd9;
+}
+
+#bluetooth.discovering {
+  border-color: #fab795;
+}
+#bluetooth.discovering:hover {
+  color: #fab795;
+}
+
+#bluetooth.connected {
+  border-color: #27d796;
+}
+#bluetooth.connected:hover {
+  color: #27d796;
+}
+
+#privacy {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #26bbd9;
+  border: 1px;
+  border-style: solid;
+  border-color: #26bbd9;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#clock {
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #f9cbbe;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#language {
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #fab795;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+#language:hover {
+  color: #fab795;
+}
+
+#backlight {
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #f9cbbe;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+#wireplumber {
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #26bbd9;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+#wireplumber:hover {
+  color: #26bbd9;
+}
+
+#wireplumber.muted {
+  border-color: #f43e5c;
+}
+#wireplumber.muted:hover {
+  color: #f43e5c;
+}
+
+#battery {
+  padding-left: 10px;
+  padding-right: 10px;
+  background: rgba(22, 22, 28, 0.6274509804);
+  color: #f9cbbe;
+  border: 1px;
+  border-style: solid;
+  border-color: #27d796;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+#battery:hover {
+  color: #27d796;
+}
+
+#battery.normal {
+  border-color: #26bbd9;
+}
+#battery.normal:hover {
+  color: #26bbd9;
+}
+
+#battery.warning {
+  border-color: #fab795;
+}
+#battery.warning:hover {
+  color: #fab795;
+}
+
+#battery.critical {
+  border-color: #f43e5c;
+}
+#battery.critical:hover {
+  color: #f43e5c;
+}
+
+#battery.charging {
+  border-color: #27d796;
+  color: #27d796;
+}
