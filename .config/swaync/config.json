@@ -60,6 +60,7 @@
         },
         {
           "label": "󰍭",
+          "active": true,
           "command": "amixer -D pipewire sset Capture toggle",
           "type": "toggle"
         },
