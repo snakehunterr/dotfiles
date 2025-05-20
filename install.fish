@@ -1,6 +1,16 @@
 #! /usr/bin/env fish
 
-cp -rv $PWD/.config $HOME
+rm -rfv $HOME/.config
+ln -sf $PWD/.config $HOME
+
+if ! grep -e '^Color' /etc/pacman.conf >/dev/null
+    sudo sed -i 's/#Color.*//' /etc/pacman.conf
+    sudo sed -i 's/\[options\]/\[options\]\nColor/' /etc/pacman.conf
+end
+if ! grep -e '^ILoveCandy' /etc/pacman.conf >/dev/null
+    sudo sed -i 's/#ILoveCandy.*//' /etc/pacman.conf
+    sudo sed -i 's/\[options\]/\[options\]\nILoveCandy/' /etc/pacman.conf
+end
 
 # MAIN PACKAGES #
 
@@ -10,7 +20,6 @@ sudo pacman -S --needed --noconfirm xdg-desktop-portal xdg-desktop-portal-hyprla
 sudo pacman -S --needed --noconfirm rofi-wayland waybar
 sudo pacman -S --needed --noconfirm libnotify swaync
 sudo pacman -S --needed --noconfirm wl-clipboard wmctrl grim slurp
-
 sudo pacman -S --needed --noconfirm pipewire pipewire-alsa pipewire-pulse pipewire-audio wireplumber alsa-utils
 
 # asahi arch linux arm
@@ -19,8 +28,10 @@ sudo pacman -S --needed --noconfirm pipewire pipewire-alsa pipewire-pulse pipewi
 sudo pacman -S --needed --noconfirm bluez bluez-utils bluetui
 sudo systemctl enable bluetooth.service
 
-if ! grep -e '^AutoEnable=false' /etc/bluetooth/main.conf >/dev/null
-    sudo sed -i 's/.*AutoEnable=true/AutoEnable=false/' /etc/bluetooth/main.conf
+if ! grep -e 'AutoEnable=' /etc/bluetooth/main.conf >/dev/null
+    echo "AutoEnable=false" | sudo tee -a /etc/bluetooth/main.conf >/dev/null
+else
+    sudo sed -i 's/.*AutoEnable=.*/AutoEnable=false/' /etc/bluetooth/main.conf
 end
 
 # OTHER USEFUL #
@@ -31,14 +42,14 @@ sudo pacman -S --needed --noconfirm pigz btop jq unzip wev lsd man-db openssh
 
 sudo pacman -S --needed --noconfirm terminus-font
 
-if ! grep -e '.*FONT=' /etc/vconsole.conf
-    echo "FONT=ter-v24b" | sudo tee -a /etc/vconsole.conf
+if ! grep -e '.*FONT=' /etc/vconsole.conf >/dev/null
+    echo "FONT=ter-v24b" | sudo tee -a /etc/vconsole.conf >/dev/null
 else
     sudo sed -i 's/.*FONT=.*/FONT=ter-v24b/' /etc/vconsole.conf
 end
 
-if ! grep -e '.*FONT_MAP=' /etc/vconsole.conf
-    echo "FONT_MAP=9959-2" | sudo tee -a /etc/vconsole.conf
+if ! grep -e '.*FONT_MAP=' /etc/vconsole.conf >/dev/null
+    echo "FONT_MAP=9959-2" | sudo tee -a /etc/vconsole.conf >/dev/null
 else
     sudo sed -i 's/.*FONT_MAP=.*/FONT_MAP=8859-2/' /etc/vconsole.conf
 end
@@ -47,24 +58,24 @@ sudo cp -rv $PWD/FiraCodeNerdFont /usr/share/fonts
 
 # GRUB #
 
-ln -s $PWD/Wallpapers $HOME/Wallpapers
+ln -sf $PWD/Wallpapers $HOME/Wallpapers
 sudo cp -v $(readlink -f $HOME/Wallpapers/grub.jpg) /boot/grub/wallpaper.jpg
 sudo grub-mkfont --output=/boot/grub/fonts/firacode.pf2 --size=24 /usr/share/fonts/FiraCodeNerdFont/FiraCodeNerdFont-Medium.ttf
 
-if ! grep -e '.*GRUB_FONT=' /etc/default/grub
+if ! grep -e '.*GRUB_FONT=' /etc/default/grub >/dev/null
     echo "GRUB_FONT=/boot/grub/fonts/firacode.pf2" | sudo tee -a /etc/default/grub >/dev/null
 else
-    sudo sed -i 's/.*GRUB_FONT=.*/\/boot\/grub\/fonts\/firacode.pf2/' /etc/default.grub
+    sudo sed -i 's/.*GRUB_FONT=.*/GRUB_FONT=\/boot\/grub\/fonts\/firacode.pf2/' /etc/default/grub
 end
 
-if grep -e quiet /etc/default/grub
+if grep -e quiet /etc/default/grub >/dev/null
     sudo sed -i 's/ quiet//' /etc/default/grub
 end
 
-if ! grep -e '.*GRUB_BACKGROUND=' /etc/default/grub
-    echo "GRUB_BACKGROUND=/boot/grub/wallpaper.jpg" | sudo tee -a /etc/default.grub
+if ! grep -e '.*GRUB_BACKGROUND=' /etc/default/grub >/dev/null
+    echo "GRUB_BACKGROUND=/boot/grub/wallpaper.jpg" | sudo tee -a /etc/default/grub >/dev/null
 else
-    sudo sed -i 's/#GRUB_BACKGROUND.*/GRUB_BACKGROUND=\/boot\/grub\/wallpaper.jpg/' /etc/default/grub
+    sudo sed -i 's/.*GRUB_BACKGROUND.*/GRUB_BACKGROUND=\/boot\/grub\/wallpaper.jpg/' /etc/default/grub
 end
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -90,4 +101,4 @@ makepkg -si
 cd $PWD
 rm -rfv $HOME/yay-git
 
-# yay -S --noconfirm wyeb
+# yay -S --needed --noconfirm wyeb
