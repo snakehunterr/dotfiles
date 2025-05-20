@@ -38,6 +38,17 @@ end
 
 sudo pacman -S --needed --noconfirm pigz btop jq unzip wev lsd man-db openssh
 
+# LEMURS LOGIN SCREEN
+
+sudo pacman -S --needed --noconfirm lemurs
+sudo systemctl disable display-manager.service
+sudo systemctl enable lemurs.service
+
+set username (whoami)
+sudo usermod -aG seat $username
+sudo cp lemurs_hypr /etc/lemurs/wayland/hyprland
+sudo chmod 755 /etc/lemurs/wayland/hyprland
+
 # FONTS #
 
 sudo pacman -S --needed --noconfirm terminus-font
@@ -49,7 +60,7 @@ else
 end
 
 if ! grep -e '.*FONT_MAP=' /etc/vconsole.conf >/dev/null
-    echo "FONT_MAP=9959-2" | sudo tee -a /etc/vconsole.conf >/dev/null
+    echo "FONT_MAP=8859-2" | sudo tee -a /etc/vconsole.conf >/dev/null
 else
     sudo sed -i 's/.*FONT_MAP=.*/FONT_MAP=8859-2/' /etc/vconsole.conf
 end
@@ -91,14 +102,15 @@ cp -rv $PWD/sunset_cursor $HOME/.local/share/icons/sunset
 # FISH SHELL #
 
 sudo pacman -S --needed --noconfirm fish fzf fd bat
-set username (whoami)
 sudo chsh -s (which fish) $username
 
 set lastpwd $PWD
 git clone https://aur.archlinux.org/yay-git $HOME/yay-git
 cd $HOME/yay-git
-makepkg -si
+sudo makepkg -si
 cd $PWD
 rm -rfv $HOME/yay-git
 
 # yay -S --needed --noconfirm wyeb
+
+rm -rfv $HOME/.bash*
