@@ -3,7 +3,10 @@ set -Ux VISUAL helix
 
 set -Ux RUSTUP_HOME $HOME/.local/rustup
 set -Ux CARGO_HOME $HOME/.local/cargo
+
 set -Ux GOPATH $HOME/.local/go
+set -Ux GOBIN $GOPATH/bin
+set -Ux GO111MODULE on
 
 set -Ux NPM_CONFIG_USERCONFIG $HOME/.config/npm/npmrc
 set -Ux npm_config_prefix $HOME/.local

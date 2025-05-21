@@ -36,7 +36,7 @@ end
 
 # OTHER USEFUL #
 
-sudo pacman -S --needed --noconfirm pigz btop jq unzip wev lsd man-db openssh
+sudo pacman -S --needed --noconfirm pigz btop jq unzip wev lsd man-db openssh bind
 
 # LEMURS LOGIN SCREEN
 
