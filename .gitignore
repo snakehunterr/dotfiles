@@ -18,3 +18,5 @@ wyeb./
 .config/vimb/
 .config/dlv/
 .config/btop/btop.log
+.config/nvim/TODO.md
+.config/nvim/lazy-lock.json
