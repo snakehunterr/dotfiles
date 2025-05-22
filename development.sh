@@ -22,7 +22,8 @@ yay -S --needed --noconfirm superhtml
 
 # GIT #
 
-sudo pacman -S --needed --noconfirm github-cli
+sudo pacman -S --needed --noconfirm github-cli deno
+sudo pacman -S --needed --noconfirm webkit2gtk
 npm install -g --loglevel verbose gitmoji-cli
 yay -S --needed --noconfirm ttf-twemoji
 

@@ -101,7 +101,7 @@ cp -rv $PWD/sunset_cursor $HOME/.local/share/icons/sunset
 
 # FISH SHELL #
 
-sudo pacman -S --needed --noconfirm fish fzf fd bat
+sudo pacman -S --needed --noconfirm fzf fd bat
 sudo chsh -s (which fish) $username
 
 set lastpwd $PWD
@@ -114,3 +114,6 @@ rm -rfv $HOME/yay-git
 # yay -S --needed --noconfirm wyeb
 
 rm -rfv $HOME/.bash*
+
+sudo pacman -S --needed --noconfirm nvim luarocks ripgrep imagemagick
+yay -S --needed --noconfirm ast-grep
