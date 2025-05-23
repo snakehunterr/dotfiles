@@ -6,6 +6,16 @@ return {
       "moyiz/blink-emoji.nvim",
     },
     opts = {
+      completion = {
+        menu = {
+          auto_show = true,
+          border = "rounded",
+        },
+        documentation = {
+          auto_show = true,
+          window = { border = "rounded" },
+        },
+      },
       sources = {
         default = { "lsp", "path", "snippets", "buffer", "emoji", "dadbod" },
         per_filetype = {
