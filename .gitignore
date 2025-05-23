@@ -21,3 +21,5 @@ wyeb./
 .config/nvim/TODO.md
 .config/nvim/lazy-lock.json
 .config/nvim/.neoconf.json
+.config.back/
+.config/gnupg
