@@ -11,6 +11,10 @@ set -Ux GO111MODULE on
 set -Ux NPM_CONFIG_USERCONFIG $HOME/.config/npm/npmrc
 set -Ux npm_config_prefix $HOME/.local
 
+set -Ux GNUPGHOME $HOME/.config/gnupg
+set -Ux SQLITE_HISTORY $HOME/.cache/sqlite_history
+set -Ux PYTHON_HISTORY $HOME/.cache/python_history
+
 set -U __fish_git_prompt_show_informative_status 1
 set -U __fish_git_prompt_showuntrackedfiles 1
 set -U __fish_git_prompt_showcolorhints 1

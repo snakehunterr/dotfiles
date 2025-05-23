@@ -15,7 +15,7 @@ end
 # MAIN PACKAGES #
 
 sudo pacman -S --needed --noconfirm hyprland hyprlock hyprpaper hypridle hyprpicker hyprsunset hyprcursor
-sudo pacman -S --needed --noconfirm kitty firefox helix
+sudo pacman -S --needed --noconfirm kitty firefox
 sudo pacman -S --needed --noconfirm xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
 sudo pacman -S --needed --noconfirm rofi-wayland waybar
 sudo pacman -S --needed --noconfirm libnotify swaync
