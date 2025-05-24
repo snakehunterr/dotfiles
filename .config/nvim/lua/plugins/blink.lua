@@ -10,6 +10,7 @@ return {
         menu = {
           auto_show = true,
           border = "rounded",
+          winblend = 50,
         },
         documentation = {
           auto_show = true,

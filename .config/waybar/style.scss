@@ -1,9 +1,6 @@
-$red: #f43e5c;
-$green: #27d796;
-$blue: #26bbd9;
-$yellow: #fab795;
-$white: #fadad1;
-$bg: #16161ca0;
+@import "../styles.scss";
+
+$text: $white;
 
 $mtop: 0px;
 $mbot: 0px;
@@ -13,9 +10,6 @@ $pright: 10px;
 
 $bsize: 1px;
 $bradius: 5px;
-$anim: all 0.3s ease-in-out;
-
-$text: #f9cbbe;
 
 * {
   font-family: "FiraCode Nerd Font";
@@ -45,12 +39,11 @@ window#waybar {
 #workspaces {
   padding-left: 0px;
   padding-right: 12px;
-  background: $bg;
+  background: $bg-o;
   border: $bsize;
   border-style: solid;
   border-radius: $bradius;
   border-color: $red;
-  transition: $anim;
 }
 
 #workspaces button {
@@ -59,10 +52,10 @@ window#waybar {
   margin: 0;
   padding-left: 8px;
   padding-right: 0px;
-  transition: all 0.7s ease;
+  transition: $anim-out;
 
   &:hover {
-    transition: all 0.1s ease;
+    transition: $anim-in;
     color: $red;
     background: transparent;
     box-shadow: none;
@@ -79,40 +72,38 @@ window#waybar {
   margin-left: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
-  color: $text;
+  background: $bg-o;
+  color: $green;
   border: $bsize;
+  border-color: $green;
   border-style: solid;
-  border-color: $red;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
 
   &:hover {
-    color: $red;
+    transition: $anim-in;
+    background: $green;
+    color: $bg;
   }
 }
 
 #network.disabled {
   border-color: $red;
+  color: $red;
 
   &:hover {
-    color: $red;
+    background: $red;
+    color: $bg;
   }
 }
 
 #network.disconnected {
   border-color: $red;
+  color: $red;
 
   &:hover {
-    color: $red;
-  }
-}
-
-#network.wifi {
-  border-color: $green;
-
-  &:hover {
-    color: $green;
+    background: $red;
+    color: $bg;
   }
 }
 
@@ -120,20 +111,26 @@ window#waybar {
   margin-left: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
+  background: $bg-o;
   color: $text;
+  border-color: $text;
   border: $bsize;
   border-style: solid;
-  border-color: $text;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
+
+  &:hover {
+    transition: $anim-in;
+  }
 }
 
 #bluetooth.on {
   border-color: $blue;
+  color: $blue;
 
   &:hover {
-    color: $blue;
+    background: $blue;
+    color: $bg;
   }
 }
 
@@ -157,41 +154,55 @@ window#waybar {
   margin-left: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
+  background: $bg-o;
   color: $blue;
+  border-color: $blue;
   border: $bsize;
   border-style: solid;
-  border-color: $blue;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
+
+  &:hover {
+    transition: $anim-in;
+    color: $bg;
+    background: $blue;
+  }
 }
 
 #clock {
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
+  background: $bg-o;
   color: $text;
   border: $bsize;
   border-style: solid;
   border-color: $text;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
+
+  &:hover {
+    color: $bg;
+    background: $text;
+    transition: $anim-in;
+  }
 }
 
 #language {
   margin-right: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
-  color: $text;
+  background: $bg-o;
+  color: $yellow;
+  border-color: $yellow;
   border: $bsize;
   border-style: solid;
-  border-color: $yellow;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
 
   &:hover {
-    color: $yellow;
+    color: $bg;
+    background: $yellow;
+    transition: $anim-in;
   }
 }
 
@@ -199,81 +210,104 @@ window#waybar {
   margin-right: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
+  background: $bg-o;
   color: $text;
   border: $bsize;
   border-style: solid;
   border-color: $text;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
+
+  &:hover {
+    color: $bg;
+    background: $text;
+    transition: $anim-in;
+  }
 }
 
 #wireplumber {
   margin-right: $mside;
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
-  color: $text;
+  background: $bg-o;
+  color: $blue;
+  border-color: $blue;
   border: $bsize;
   border-style: solid;
-  border-color: $blue;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
 
   &:hover {
-    color: $blue;
+    color: $bg;
+    background: $blue;
+    transition: $anim-in;
   }
 }
 
 #wireplumber.muted {
+  color: $red;
   border-color: $red;
 
   &:hover {
-    color: $red;
+    background: $red;
+    color: $bg;
   }
 }
 
 #battery {
   padding-left: $pleft;
   padding-right: $pright;
-  background: $bg;
-  color: $text;
+  background: $bg-o;
+  color: $green;
+  border-color: $green;
   border: $bsize;
   border-style: solid;
-  border-color: $green;
   border-radius: $bradius;
-  transition: $anim;
+  transition: $anim-out;
 
   &:hover {
-    color: $green;
+    color: $bg;
+    background: $green;
+    transition: $anim-in;
   }
 }
 
 #battery.normal {
   border-color: $blue;
+  color: $blue;
 
   &:hover {
-    color: $blue;
+    color: $bg;
+    background: $blue;
   }
 }
 
 #battery.warning {
   border-color: $yellow;
+  color: $yellow;
 
   &:hover {
-    color: $yellow;
+    color: $bg;
+    background: $yellow;
   }
 }
 
 #battery.critical {
   border-color: $red;
+  color: $red;
 
   &:hover {
-    color: $red;
+    color: $bg;
+    background: $red;
   }
 }
 
 #battery.charging {
-  border-color: $green;
   color: $green;
+  border-color: $green;
+
+  &:hover {
+    color: $bg;
+    background: $green;
+  }
 }

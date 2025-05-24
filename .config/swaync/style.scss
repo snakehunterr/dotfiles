@@ -1,16 +1,8 @@
-$red: #f43e5c;
-$green: #27d796;
-$blue: #26bbd9;
-$yellow: #fab795;
-$lightyellow: #f9cbbe;
-$white: #fadad1;
-$bg: #16161c;
-$bg-o: #16161ce0;
-$dark-gray: #313131;
+@import "../styles.scss";
 
-$text: $lightyellow;
+$text: $white;
 $accent: $red;
-$btn: $lightyellow;
+$btn: $red;
 
 @keyframes fadeIn {
   0% {
@@ -18,32 +10,26 @@ $btn: $lightyellow;
     margin-left: 50;
     margin-right: 50;
   }
+
   100% {
     padding: 0;
     margin: 0;
   }
 }
+
 * {
   outline: none;
 }
+
 .control-center .notification-row {
   background-color: unset;
 }
+
 .control-center .notification-row .notification-background .notification,
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content,
-.floating-notifications
-  .notification-row
-  .notification-background
-  .notification,
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content {
-}
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification,
+.floating-notifications.background .notification-background .notification .notification-content {}
+
 .notification {
   background: $bg;
 }
@@ -54,6 +40,7 @@ $btn: $lightyellow;
   background: $bg;
   border: 1px solid $text;
 }
+
 .floating-notifications .notification {
   animation: fadeIn 0.25s ease-in-out;
   border: 1px solid $text;
@@ -61,187 +48,77 @@ $btn: $lightyellow;
 
 .control-center .notification-row .notification-background .notification box,
 .control-center .notification-row .notification-background .notification widget,
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content,
-.floating-notifications
-  .notification-row
-  .notification-background
-  .notification
-  box,
-.floating-notifications
-  .notification-row
-  .notification-background
-  .notification
-  widget,
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content {
+.control-center .notification-row .notification-background .notification .notification-content,
+.floating-notifications .notification-row .notification-background .notification box,
+.floating-notifications .notification-row .notification-background .notification widget,
+.floating-notifications.background .notification-background .notification .notification-content {
   border-radius: 0.818rem;
 }
+
 .notification widget:hover {
   background: $bg;
 }
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content,
+
+.floating-notifications.background .notification-background .notification .notification-content,
 .control-center .notification-background .notification .notification-content {
   padding-top: 0.818rem;
   padding-right: unset;
   margin-right: unset;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.low
-  .notification-content
-  label,
-.control-center
-  .notification-row
-  .notification-background
-  .notification.normal
-  .notification-content
-  label,
-.floating-notifications.background
-  .notification-background
-  .notification.low
-  .notification-content
-  label,
-.floating-notifications.background
-  .notification-background
-  .notification.normal
-  .notification-content
-  label {
+.control-center .notification-row .notification-background .notification.low .notification-content label,
+.control-center .notification-row .notification-background .notification.normal .notification-content label,
+.floating-notifications.background .notification-background .notification.low .notification-content label,
+.floating-notifications.background .notification-background .notification.normal .notification-content label {
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.notification-content
-  image,
-.control-center
-  .notification-row
-  .notification-background
-  .notification.normal
-  .notification-content
-  image,
-.floating-notifications.background
-  .notification-background
-  .notification.low
-  .notification-content
-  image,
-.floating-notifications.background
-  .notification-background
-  .notification.normal
-  .notification-content
-  image {
+.control-center .notification-row .notification-background .notification.notification-content image,
+.control-center .notification-row .notification-background .notification.normal .notification-content image,
+.floating-notifications.background .notification-background .notification.low .notification-content image,
+.floating-notifications.background .notification-background .notification.normal .notification-content image {
   background-color: unset;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.low
-  .notification-content
-  .body,
-.control-center
-  .notification-row
-  .notification-background
-  .notification.normal
-  .notification-content
-  .body,
-.floating-notifications.background
-  .notification-background
-  .notification.low
-  .notification-content
-  .body,
-.floating-notifications.background
-  .notification-background
-  .notification.normal
-  .notification-content
-  .body {
+.control-center .notification-row .notification-background .notification.low .notification-content .body,
+.control-center .notification-row .notification-background .notification.normal .notification-content .body,
+.floating-notifications.background .notification-background .notification.low .notification-content .body,
+.floating-notifications.background .notification-background .notification.normal .notification-content .body {
   color: $white;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.critical
-  .notification-content,
-.floating-notifications.background
-  .notification-background
-  .notification.critical
-  .notification-content {
+.control-center .notification-row .notification-background .notification.critical .notification-content,
+.floating-notifications.background .notification-background .notification.critical .notification-content {
   background-color: $bg;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.critical
-  .notification-content
-  image,
-.floating-notifications.background
-  .notification-background
-  .notification.critical
-  .notification-content
-  image {
+.control-center .notification-row .notification-background .notification.critical .notification-content image,
+.floating-notifications.background .notification-background .notification.critical .notification-content image {
   background-color: unset;
   color: $green;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification.critical
-  .notification-content
-  label,
-.floating-notifications.background
-  .notification-background
-  .notification.critical
-  .notification-content
-  label {
+.control-center .notification-row .notification-background .notification.critical .notification-content label,
+.floating-notifications.background .notification-background .notification.critical .notification-content label {
   color: $blue;
 }
+
 .notification-content {
   padding: 5;
 }
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .summary,
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content
-  .summary {
+
+.control-center .notification-row .notification-background .notification .notification-content .summary,
+.floating-notifications.background .notification-background .notification .notification-content .summary {
   color: $text;
   font-family: "FiraCode Nerd Font";
   font-size: 14px;
   font-weight: 500;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .time,
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content
-  .time {
+.control-center .notification-row .notification-background .notification .notification-content .time,
+.floating-notifications.background .notification-background .notification .notification-content .time {
   color: $text;
   font-size: 14px;
   font-weight: 500;
@@ -249,17 +126,8 @@ $btn: $lightyellow;
   padding-right: unset;
 }
 
-.control-center
-  .notification-row
-  .notification-background
-  .notification
-  .notification-content
-  .body,
-.floating-notifications.background
-  .notification-background
-  .notification
-  .notification-content
-  .body {
+.control-center .notification-row .notification-background .notification .notification-content .body,
+.floating-notifications.background .notification-background .notification .notification-content .body {
   color: $white;
   font-family: "FiraCode Nerd Font";
   font-size: 12px;
@@ -284,10 +152,11 @@ $btn: $lightyellow;
   min-width: 20px;
   text-shadow: none;
   color: $red;
+  transition: $anim-out;
 
   &:hover {
     all: unset;
-    transition: all 0.2s ease;
+    transition: $anim-in;
     border-radius: 100%;
     border: none;
     box-shadow: none;
@@ -325,10 +194,11 @@ $btn: $lightyellow;
   min-width: 20px;
   text-shadow: none;
   color: $green;
+  transition: $anim-out;
 
   &:hover {
     all: unset;
-    transition: all 0.2s ease;
+    transition: $anim-in;
     border-radius: 100%;
     border: none;
     box-shadow: none;
@@ -352,7 +222,7 @@ $btn: $lightyellow;
   padding-top: 20px;
 }
 
-.widget-title > button {
+.widget-title>button {
   padding: unset;
   margin: unset;
   font-size: initial;
@@ -365,20 +235,21 @@ $btn: $lightyellow;
   padding: 0px 10px;
   margin-right: 20px;
   margin-top: 3px;
+  transition: $anim-out;
   transition: all 0.3s ease;
-}
 
-.widget-title > button:hover {
-  background: $red;
-  color: $bg;
-  transition: all 0.3s ease;
+  &:hover {
+    background: $red;
+    color: $bg;
+    transition: $anim-in;
+  }
 }
 
 .widget-label {
   margin: 8px;
 }
 
-.widget-label > label {
+.widget-label>label {
   font-size: 1.1rem;
 }
 
@@ -392,88 +263,88 @@ $btn: $lightyellow;
   background: transparent;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button label {
+.widget-buttons-grid>flowbox>flowboxchild>button label {
   font-size: 20px;
   color: $btn;
-  transition: all 0.3s ease;
+  transition: anim-out;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover label {
+.widget-buttons-grid>flowbox>flowboxchild>button:hover label {
   font-size: 20px;
   color: $bg;
-  transition: all 0.3s ease;
+  transition: $anim-in;
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button {
+.widget-buttons-grid>flowbox>flowboxchild>button {
   background: $bg;
   border-radius: 6px;
   text-shadow: none;
   box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.02);
   border: 1px solid $btn;
-  transition: all 0.3s ease;
+  transition: $anim-out;
+
+  &:hover {
+    background: $btn;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    transition: $anim-in;
+  }
 }
 
-.widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: $btn;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
-  border-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked {
+.widget-buttons-grid>flowbox>flowboxchild>button.toggle:checked {
   background: $red;
   border-color: transparent;
 }
-.widget-buttons-grid > flowbox > flowboxchild > button.toggle:checked label {
+
+.widget-buttons-grid>flowbox>flowboxchild>button.toggle:checked label {
   color: $bg;
 }
 
-.widget-menubar > box > .menu-button-bar > button {
+.widget-menubar>box>.menu-button-bar>button {
   border: none;
   background: transparent;
 }
 
-.topbar-buttons > button {
+.topbar-buttons>button {
   border: none;
   background: transparent;
 }
 
 trough {
   border-radius: 20px;
-  background: $dark-gray;
+  background: $gray;
 }
 
 trough highlight {
   padding: 5px;
-  background: $red;
+  background: $yellow;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  transition: all 0.7s ease;
+  transition: $anim-out;
 }
+
 trough highlight:hover {
   padding: 5px;
-  background: $red;
+  background: $yellow;
   border-radius: 20px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
-  transition: all 0.7s ease;
+  transition: $anim-in;
 }
 
 trough slider {
-  background: $red;
-}
-trough slider:hover {
-  background: $red;
+  all: unset;
 }
 
 .widget-volume {
-  color: $red;
+  color: $text;
   background-color: transparent;
   padding: 8px;
   margin: 8px;
   border-radius: 12px;
 }
+
 .widget-backlight {
-  color: $red;
+  color: $text;
   background-color: transparent;
   padding: 8px;
   margin: 8px;

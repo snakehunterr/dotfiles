@@ -31,8 +31,13 @@
   "hide-on-action": true,
   "text-empty": "",
   "script-fail-notify": true,
-
-  "widgets": ["title", "notifications", "volume", "backlight", "buttons-grid"],
+  "widgets": [
+    "title",
+    "notifications",
+    "volume",
+    "backlight",
+    "buttons-grid"
+  ],
   "widget-config": {
     "title": {
       "text": "Notification Center",
@@ -43,7 +48,6 @@
       "max-lines": 1,
       "text": "Notification Center!"
     },
-
     "volume": {
       "label": "󰕾 "
     },
@@ -67,18 +71,20 @@
         {
           "label": " ",
           "type": "toggle",
-          "active": true,
-          "command": "fish ~/.config/scripts/wifi.fish"
+          "command": "sh ~/.config/scripts/wifi.sh",
+          "update-command": "sh ~/.config/scripts/wifi.sh state"
         },
         {
           "label": "",
           "type": "toggle",
-          "command": "fish ~/.config/scripts/bluetooth.fish"
+          "command": "sh ~/.config/scripts/bluetooth.sh",
+          "update-command": "sh ~/.config/scripts/bluetooth.sh state"
         },
         {
           "label": "󰤄",
           "type": "toggle",
-          "command": "fish ~/.config/scripts/night_mode.fish"
+          "command": "sh ~/.config/scripts/night_mode.sh",
+          "update-command": "sh ~/.config/scripts/night_mode.sh state"
         },
         {
           "label": "",

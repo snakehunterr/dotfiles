@@ -1,24 +1,34 @@
 {
   "layer": "top",
-  "modules-left": ["hyprland/workspaces", "network", "bluetooth", "privacy"],
-  "modules-center": ["clock"],
-  "modules-right": ["hyprland/language", "backlight", "wireplumber", "battery"],
-
+  "modules-left": [
+    "hyprland/workspaces",
+    "network",
+    "bluetooth",
+    "privacy"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "hyprland/language",
+    "backlight",
+    "wireplumber",
+    "battery"
+  ],
   "hyprland/workspaces": {
     "format": "{icon}",
     "tooltip": false,
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
       "urgent": "",
       "active": "",
       "default": ""
     }
   },
-
   "network": {
     "interval": 10,
     "interface": "wlp2s0",
@@ -28,7 +38,6 @@
     "tooltip": false,
     "max-length": 50
   },
-
   "bluetooth": {
     "format": " {status}",
     "format-disabled": "",
@@ -39,25 +48,23 @@
     "tooltip": false,
     "max-length": 50
   },
-
   "clock": {
     "format": "{:%H:%M}",
     "tooltip": false
   },
-
   "hyprland/language": {
     "format": "  {1}",
     "on-click": "hyprctl switchxkblayout all next",
     "tooltip": false
   },
-
   "backlight": {
     "device": "apple-panel-bl",
     "format": "{icon} {percent}%",
-    "format-icons": [""],
+    "format-icons": [
+      ""
+    ],
     "tooltip": false
   },
-
   "wireplumber": {
     "tooltip": false,
     "scroll-step": 5,
@@ -65,10 +72,13 @@
     "format-muted": "{icon}  muted",
     "on-click": "amixer -D pipewire sset Master toggle",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
   },
-
   "battery": {
     "interval": 2,
     "bat": "BAT1",
@@ -78,10 +88,16 @@
       "critical": 15
     },
     "format": "{icon}  {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-charging": "⚡ {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "max-length": 25
   },
-
   "privacy": {
     "icon-spacing": 10,
     "icon-size": 18,

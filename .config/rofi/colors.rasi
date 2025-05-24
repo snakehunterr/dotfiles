@@ -1,9 +1,11 @@
+
 * {
-    windowbg: #16161CE0;
-    background:     #16161C;
-    background-alt: #16161C;
-    foreground:     #FADAD1;
-    selected:       #F43E5C;
-    active:         #F43E5C;
-    urgent:         #F43E5C;
+    windowbg: #16161ee0;
+    background:     #16161e;
+    background-alt: #16161e;
+    foreground:     #cdd6f4;
+    element-foreground: #f9e2af;
+    selected:       #f38ba8;
+    active:         #f38ba8;
+    urgent:         #f38ba8;
 }
