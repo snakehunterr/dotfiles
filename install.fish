@@ -17,7 +17,8 @@ end
 sudo pacman -S --needed --noconfirm hyprland hyprlock hyprpaper hypridle hyprpicker hyprsunset hyprcursor
 sudo pacman -S --needed --noconfirm kitty firefox
 sudo pacman -S --needed --noconfirm xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-sudo pacman -S --needed --noconfirm rofi-wayland waybar
+sudo pacman -S --needed --noconfirm rofi-wayland waybar rofi-emoji wtype
+yay -S --needed --noconfirm rofi-blocks-git
 sudo pacman -S --needed --noconfirm libnotify swaync
 sudo pacman -S --needed --noconfirm wl-clipboard wmctrl grim slurp
 sudo pacman -S --needed --noconfirm pipewire pipewire-alsa pipewire-pulse pipewire-audio wireplumber alsa-utils

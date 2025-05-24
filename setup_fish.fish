@@ -25,7 +25,7 @@ set -U async_prompt_inherit_variables all
 
 set -U fish_color_autosuggestion brblack
 set -U fish_color_cancel --reverse
-set -U fish_color_command green
+set -U fish_color_command yellow
 set -U fish_color_comment normal
 set -U fish_color_cwd green
 set -U fish_color_cwd_root red
